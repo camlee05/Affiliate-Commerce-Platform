@@ -124,7 +124,7 @@ class PlatformFeePaymentController extends Controller
     {
         $accountNumber = '0375401903';
         $bankCode = 'MB'; // MBBank
-        $accountName = 'TTUNG PLATFORM';
+        $accountName = 'AFFILIATE PLATFORM';
         
         // Format số tiền (làm tròn không có số thập phân)
         $amountFormatted = number_format($amount, 0, '', '');

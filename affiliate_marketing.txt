@@ -4,7 +4,7 @@ THÔNG TIN NHÓM - NHÓM 5
 Phạm Duy Anh - 23010155 - Thành viên  
 Nguyễn Hữu Tú - 23010199 - Thành viên
 
-ĐỀ TÀI XÂY DỰNG HỆ THỐNG AFFILIATE MARKETING PLATFORM
+ĐỀ TÀI XÂY DỰNG HỆ THỐNG AFFILIATE COMMENRCE PLATFORM
 =====================================
 
 1. MÔ TẢ VỀ HỆ THỐNG
@@ -13,13 +13,13 @@ Nguyễn Hữu Tú - 23010199 - Thành viên
 --------------
 Trong bối cảnh thương mại điện tử phát triển mạnh mẽ tại Việt Nam và thế giới, nhu cầu về tiếp thị liên kết (Affiliate Marketing) ngày càng tăng cao. Các doanh nghiệp cần tìm cách mở rộng thị trường và tăng doanh số bán hàng thông qua việc hợp tác với các nhà tiếp thị (Publisher), trong khi các Publisher cần một nền tảng đáng tin cậy để kiếm thu nhập từ việc quảng bá sản phẩm.
 
-Tuy nhiên, hiện tại các nền tảng affiliate marketing hiện có thường phức tạp, khó sử dụng và không phù hợp với thị trường Việt Nam. Điều này tạo ra khoảng trống lớn cho một giải pháp affiliate marketing toàn diện, dễ sử dụng và tối ưu cho người dùng Việt Nam.
+Tuy nhiên, hiện tại các nền tảng affiliate commenrce hiện có thường phức tạp, khó sử dụng và không phù hợp với thị trường Việt Nam. Điều này tạo ra khoảng trống lớn cho một giải pháp affiliate marketing toàn diện, dễ sử dụng và tối ưu cho người dùng Việt Nam.
 
 1.2. Mục tiêu chiến lược
 -------------------------
-- Xây dựng nền tảng affiliate marketing hàng đầu tại Việt Nam
+- Xây dựng nền tảng affiliate commerce hàng đầu tại Việt Nam
 - Tạo ra hệ sinh thái kết nối hiệu quả giữa Shop (người bán) và Publisher (người tiếp thị)
-- Cung cấp công cụ quản lý và theo dõi hiệu suất marketing toàn diện
+- Cung cấp công cụ quản lý và theo dõi hiệu suất commenrce toàn diện
 - Tối ưu hóa quy trình tạo link affiliate và tính toán hoa hồng
 - Xây dựng cộng đồng kinh doanh bền vững và minh bạch
 
@@ -199,4 +199,4 @@ Tuy nhiên, hiện tại các nền tảng affiliate marketing hiện có thư�
 
 ---
 
-Tài liệu này mô tả chi tiết về hệ thống Affiliate Marketing Platform, bao gồm các yêu cầu chức năng và phi chức năng cần thiết để xây dựng một nền tảng affiliate marketing toàn diện và hiệu quả.
+Tài liệu này mô tả chi tiết về hệ thống Affiliate Commenrce Platform, bao gồm các yêu cầu chức năng và phi chức năng cần thiết để xây dựng một nền tảng affiliate marketing toàn diện và hiệu quả.

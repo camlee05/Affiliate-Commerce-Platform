@@ -8,12 +8,12 @@ Tài liệu này hệ thống lại toàn bộ nội dung thuyết trình slide 
 
 ### Tiêu đề slide
 
-**BÁO CÁO KIỂM THỬ HỆ THỐNG AFFILIATE MARKETING PLATFORM**
+**BÁO CÁO KIỂM THỬ HỆ THỐNG AFFILIATE COMMENRCE PLATFORM**
 _Hệ thống quản lý chiến dịch quảng cáo, chống gian lận, ví tài chính, voucher và rút tiền_
 
 ### 1. Giới thiệu dự án
 
-- **Affiliate Marketing Platform** là nền tảng kết nối: **Shop (Advertiser)** đăng chiến dịch/sản phẩm → **Publisher** quảng bá link affiliate → **Khách mua hàng** → Hệ thống ghi nhận **Conversion** (đối soát hoa hồng) → Publisher thực hiện **Rút tiền** qua OTP Email.
+- **Affiliate Commenrce Platform** là nền tảng kết nối: **Shop (Advertiser)** đăng chiến dịch/sản phẩm → **Publisher** quảng bá link affiliate → **Khách mua hàng** → Hệ thống ghi nhận **Conversion** (đối soát hoa hồng) → Publisher thực hiện **Rút tiền** qua OTP Email.
 
 ### 2. Các công cụ sử dụng kiểm thử (Testing Stack)
 

@@ -1,0 +1,125 @@
+#ddev-generated
+# If you remove the ddev-generated line above you
+# are responsible for maintaining this file. DDEV will not then
+# update it, for example if you add `additional_hostnames`, etc.
+
+http:
+  routers:
+    affiliate-laravel-web-80-http:
+      entrypoints:
+        - http-80
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-web-80"
+      tls: false
+      # middlewares:
+      #   - "affiliate-laravel-redirectHttps"
+    affiliate-laravel-web-8025-http:
+      entrypoints:
+        - http-8025
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-web-8025"
+      tls: false
+      # middlewares:
+      #   - "affiliate-laravel-redirectHttps"
+    affiliate-laravel-xhgui-80-http:
+      entrypoints:
+        - http-8143
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-xhgui-80"
+      tls: false
+      # middlewares:
+      #   - "affiliate-laravel-redirectHttps"
+    affiliate-laravel-adminer-8080-http:
+      entrypoints:
+        - http-9100
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-adminer-8080"
+      tls: false
+      # middlewares:
+      #   - "affiliate-laravel-redirectHttps"
+    
+    
+    
+    
+    
+    affiliate-laravel-web-80-https:
+      entrypoints:
+        - http-443
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-web-80"
+      
+      tls: true
+      
+    affiliate-laravel-web-8025-https:
+      entrypoints:
+        - http-8026
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-web-8025"
+      
+      tls: true
+      
+    
+    affiliate-laravel-xhgui-80-https:
+      entrypoints:
+        - http-8142
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-xhgui-80"
+      
+      tls: true
+      
+    
+    affiliate-laravel-adminer-8080-https:
+      entrypoints:
+        - http-9101
+      rule: HostRegexp(`^affiliate-laravel\.ddev\.site$`)
+      
+      service: "affiliate-laravel-adminer-8080"
+      
+      tls: true
+      
+    
+
+  middlewares:
+    affiliate-laravel-redirectHttps:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    affiliate-laravel-web-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-affiliate-laravel-web:80
+        
+    affiliate-laravel-web-8025:
+      loadbalancer:
+        servers:
+          - url: http://ddev-affiliate-laravel-web:8025
+        
+    
+    
+    affiliate-laravel-xhgui-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-affiliate-laravel-xhgui:80
+        
+    
+    affiliate-laravel-adminer-8080:
+      loadbalancer:
+        servers:
+          - url: http://ddev-affiliate-laravel-adminer:8080
+        
+    
+    
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/affiliate-laravel.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/affiliate-laravel.key

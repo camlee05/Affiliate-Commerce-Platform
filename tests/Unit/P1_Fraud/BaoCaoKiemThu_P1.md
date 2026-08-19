@@ -1,6 +1,6 @@
 # Báo Cáo Kiểm Thử Hộp Trắng & Kết Quả Thực Hiện (Phần 1)
 
-Báo cáo này trình bày chi tiết về phương pháp, quy trình, và kết quả kiểm thử hộp trắng (White-box Testing) cho **Phần 1 (Fraud Detection & Tracking)** của hệ thống Affiliate Marketing Platform. Tài liệu được thiết kế bám sát cấu trúc báo cáo chuẩn, giúp trình bày và thuyết minh rõ ràng trước hội đồng.
+Báo cáo này trình bày chi tiết về phương pháp, quy trình, và kết quả kiểm thử hộp trắng (White-box Testing) cho **Phần 1 (Fraud Detection & Tracking)** của hệ thống Affiliate Commerce Platform. Tài liệu được thiết kế bám sát cấu trúc báo cáo chuẩn, giúp trình bày và thuyết minh rõ ràng trước hội đồng.
 
 ---
 

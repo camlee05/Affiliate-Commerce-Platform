@@ -1,6 +1,6 @@
 # Báo Cáo Kiểm Thử Tích Hợp & Kết Quả Thực Hiện (Phần 4)
 
-Báo cáo này trình bày chi tiết về phương pháp, quy trình, luồng kiểm thử tích hợp (Feature/Integration Tests) cho **Phần 4 (Conversion, Voucher & Quy Trình Thanh Toán)** của hệ thống Affiliate Marketing Platform, giúp người trình bày dễ dàng thuyết minh trước hội đồng hoặc người nghe.
+Báo cáo này trình bày chi tiết về phương pháp, quy trình, luồng kiểm thử tích hợp (Feature/Integration Tests) cho **Phần 4 (Conversion, Voucher & Quy Trình Thanh Toán)** của hệ thống Affiliate Commenrce Platform, giúp người trình bày dễ dàng thuyết minh trước hội đồng hoặc người nghe.
 
 ---
 
@@ -290,7 +290,7 @@ Dưới đây là mô tả chi tiết các ảnh chụp màn hình độ bao ph�
 
 ## 6. Minh Chứng Kiểm Thử Đồng Thời (Concurrency Evidence)
 
-Hệ thống Affiliate Marketing Platform cần đảm bảo tuyệt đối không xảy ra hiện tượng **Double-Spending** (rút tiền 2 lần) hoặc **Double-Approve** (duyệt 2 lần cho cùng một yêu cầu) khi có nhiều yêu cầu gửi lên đồng thời trong cùng một thời điểm. Chúng tôi đã xây dựng minh chứng bằng mã nguồn tự động qua hai test case nâng cao:
+Hệ thống Affiliate Commenrce Platform cần đảm bảo tuyệt đối không xảy ra hiện tượng **Double-Spending** (rút tiền 2 lần) hoặc **Double-Approve** (duyệt 2 lần cho cùng một yêu cầu) khi có nhiều yêu cầu gửi lên đồng thời trong cùng một thời điểm. Chúng tôi đã xây dựng minh chứng bằng mã nguồn tự động qua hai test case nâng cao:
 
 ### A. Chi tiết kịch bản Concurrency đã kiểm thử
 

@@ -31,7 +31,7 @@ class ResetPasswordMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Đặt lại mật khẩu - TTung Affilate',
+            subject: 'Đặt lại mật khẩu - Affiliate Marketing',
         );
     }
 

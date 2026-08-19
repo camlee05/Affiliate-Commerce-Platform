@@ -314,7 +314,7 @@
                         Nền tảng affiliate marketing hàng đầu, kết nối Publisher với Shop một cách hiệu quả và bền vững.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/ttung180/" class="social-link hover-scale-enhanced"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/" class="social-link hover-scale-enhanced"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-link hover-scale-enhanced"><i class="fab fa-github"></i></a>
                         <a href="#" class="social-link hover-scale-enhanced"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-link hover-scale-enhanced"><i class="fab fa-instagram"></i></a>
@@ -346,7 +346,7 @@
                 <div class="footer-section hover-lift-enhanced" data-stagger="4">
                     <h3 class="footer-title">Liên hệ</h3>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-envelope"></i> tung18102k5@gmail.com</li>
+                        <li><i class="fas fa-envelope"></i> affiliate@example.com</li>
                         <li><i class="fas fa-phone"></i> +84 968 799 517</li>
                         <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
                         <li><i class="fas fa-clock"></i> Hỗ trợ 24/7</li>
@@ -388,8 +388,8 @@
                     const targetPosition = target.offsetTop - headerHeight - 20;
                     
                     // Use custom smooth scroll function
-                    if (window.TTungAffiliate && window.TTungAffiliate.smoothScrollTo) {
-                        window.TTungAffiliate.smoothScrollTo(targetPosition, 1000);
+                    if (window.Affiliate && window.Affiliate.smoothScrollTo) {
+                        window.Affiliate.smoothScrollTo(targetPosition, 1000);
                     } else {
                         target.scrollIntoView({
                             behavior: 'smooth',

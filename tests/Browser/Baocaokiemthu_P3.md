@@ -1,6 +1,6 @@
 # Báo Cáo Kiểm Thử Giao Diện Tự Động (UI/E2E Auto Testing) - Phần P3
 
-Báo cáo này trình bày chi tiết về phương pháp, quy trình, cấu trúc Page Object Model (POM) và luồng kiểm thử giao diện tự động (UI/E2E Tests) sử dụng **Laravel Dusk** cho **Phần 3 (Hành Trình Nhà Quảng Cáo & Tương Tác)** của hệ thống Affiliate Marketing Platform.
+Báo cáo này trình bày chi tiết về phương pháp, quy trình, cấu trúc Page Object Model (POM) và luồng kiểm thử giao diện tự động (UI/E2E Tests) sử dụng **Laravel Dusk** cho **Phần 3 (Hành Trình Nhà Quảng Cáo & Tương Tác)** của hệ thống Affiliate Commenrce Platform.
 
 ---
 
@@ -271,7 +271,7 @@ Trong quá trình xây dựng và vận hành hệ thống kiểm thử tự đ�
 * **Giải pháp:** Cấu hình cài đặt gói `chromium` thông qua chỉ thị `webimage_extra_packages: [chromium]` trong file `.ddev/config.yaml`. Lệnh cài đặt này sẽ tự động kéo theo toàn bộ các thư viện đồ họa và bảo mật cần thiết cho ChromeDriver chạy mượt mà trên môi trường Linux của container.
 
 ### ❌ Sự cố 2: Lỗi chặn SSL tự ký (NET::ERR_CERT_AUTHORITY_INVALID)
-* **Triệu chứng:** Dusk truy cập `https://ttung-laravel.ddev.site` nhưng bị đứng ở màn hình cảnh báo kết nối không bảo mật của Chrome.
+* **Triệu chứng:** Dusk truy cập `https://affiliate-laravel.ddev.site` nhưng bị đứng ở màn hình cảnh báo kết nối không bảo mật của Chrome.
 * **Nguyên nhân:** Trình duyệt Chromium không tin tưởng chứng chỉ SSL tự ký nội bộ được tạo bởi DDEV.
 * **Giải pháp:** Bổ sung các cờ cấu hình `--ignore-certificate-errors` và `--allow-insecure-localhost` vào phần thiết lập Chrome Options trong `tests/DuskTestCase.php`.
 
