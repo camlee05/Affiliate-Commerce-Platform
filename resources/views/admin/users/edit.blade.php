@@ -1,0 +1,328 @@
+@extends('components.dashboard.layout')
+
+@section('title', 'Chỉnh sửa Người dùng')
+
+@section('content')
+<div class="user-edit-content">
+    <!-- Header -->
+    <div class="user-edit-header">
+        <div class="user-edit-header-left">
+            <h1 class="user-edit-page-title">Chỉnh sửa Người dùng</h1>
+            <p class="user-edit-page-description">Cập nhật thông tin người dùng: {{ $user->name }}</p>
+        </div>
+        <div class="user-edit-header-right">
+            <a href="{{ route('admin.users.index') }}" class="user-btn user-btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Quay lại danh sách
+            </a>
+        </div>
+    </div>
+
+    <!-- Edit Form -->
+    <div class="user-edit-card">
+        <form method="POST" action="{{ route('admin.users.update', $user) }}" class="user-edit-form" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            
+            <div class="user-form-section">
+                <h3 class="user-form-section-title">Thông tin cơ bản</h3>
+                
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label for="name" class="user-form-label">Họ và tên <span class="required">*</span></label>
+                        <input type="text" 
+                               id="name" 
+                               name="name" 
+                               value="{{ old('name', $user->name) }}" 
+                               class="user-form-input @error('name') is-invalid @enderror" 
+                               placeholder="Nhập họ và tên"
+                               required>
+                        @error('name')
+                            <div class="user-form-error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="user-form-group">
+                        <label for="email" class="user-form-label">Email <span class="required">*</span></label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               value="{{ old('email', $user->email) }}" 
+                               class="user-form-input @error('email') is-invalid @enderror" 
+                               placeholder="Nhập email"
+                               required>
+                        @error('email')
+                            <div class="user-form-error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label for="password" class="user-form-label">Mật khẩu mới</label>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               class="user-form-input @error('password') is-invalid @enderror" 
+                               placeholder="Để trống nếu không thay đổi">
+                        @error('password')
+                            <div class="user-form-error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="user-form-group">
+                        <label for="password_confirmation" class="user-form-label">Xác nhận mật khẩu mới</label>
+                        <input type="password" 
+                               id="password_confirmation" 
+                               name="password_confirmation" 
+                               class="user-form-input" 
+                               placeholder="Nhập lại mật khẩu mới">
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-form-section">
+                <h3 class="user-form-section-title">Cài đặt tài khoản</h3>
+                
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label for="role" class="user-form-label">Vai trò <span class="required">*</span></label>
+                        <select id="role" 
+                                name="role" 
+                                class="user-form-select @error('role') is-invalid @enderror"
+                                required>
+                            <option value="">Chọn vai trò</option>
+                            <option value="shop" {{ old('role', $user->role) === 'shop' ? 'selected' : '' }}>Shop</option>
+                            <option value="publisher" {{ old('role', $user->role) === 'publisher' ? 'selected' : '' }}>Publisher</option>
+                            <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>Admin</option>
+                        </select>
+                        @error('role')
+                            <div class="user-form-error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <div class="user-form-group">
+                        <label class="user-form-label">Trạng thái</label>
+                        <div class="user-form-checkbox-group">
+                            <label class="user-form-checkbox">
+                                <input type="checkbox" 
+                                       name="is_active" 
+                                       value="1" 
+                                       {{ old('is_active', $user->is_active) ? 'checked' : '' }}>
+                                <span class="user-form-checkbox-text">Kích hoạt tài khoản</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label for="avatar" class="user-form-label">Ảnh đại diện</label>
+                        <div class="avatar-upload-container">
+                            <div class="avatar-preview" id="avatarPreview">
+                                @if($user->avatar)
+                                    <img src="{{ get_image_url($user->avatar) }}" alt="{{ $user->name }}" class="avatar-preview-img">
+                                    <div class="avatar-preview-overlay">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                @else
+                                    <div class="avatar-placeholder">
+                                        <i class="fas fa-user"></i>
+                                        <span>Chưa có ảnh</span>
+                                    </div>
+                                @endif
+                            </div>
+                            <input type="file" 
+                                   id="avatar" 
+                                   name="avatar" 
+                                   class="avatar-input @error('avatar') is-invalid @enderror" 
+                                   accept="image/*"
+                                   onchange="previewAvatar(this)">
+                            <label for="avatar" class="avatar-upload-btn">
+                                <i class="fas fa-upload"></i>
+                                {{ $user->avatar ? 'Thay đổi ảnh' : 'Chọn ảnh' }}
+                            </label>
+                            @if($user->avatar)
+                                <button type="button" 
+                                        class="user-btn user-btn-sm user-btn-outline-danger" 
+                                        onclick="removeAvatar({{ $user->id }})">
+                                    <i class="fas fa-trash"></i>
+                                    Xóa ảnh
+                                </button>
+                            @endif
+                        </div>
+                        
+                        <div class="avatar-help">
+                            Chọn file hình ảnh mới (JPG, PNG, GIF) - Tối đa 2MB
+                            @if($user->avatar)
+                                <br><small>Để trống nếu muốn giữ ảnh hiện tại</small>
+                            @endif
+                        </div>
+                        @error('avatar')
+                            <div class="user-form-error">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-form-section">
+                <h3 class="user-form-section-title">Thông tin bổ sung</h3>
+                
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label class="user-form-label">ID người dùng</label>
+                        <input type="text" 
+                               value="{{ $user->id }}" 
+                               class="user-form-input" 
+                               readonly>
+                    </div>
+                    
+                    <div class="user-form-group">
+                        <label class="user-form-label">Ngày tạo</label>
+                        <input type="text" 
+                               value="{{ $user->created_at->format('d/m/Y H:i:s') }}" 
+                               class="user-form-input" 
+                               readonly>
+                    </div>
+                </div>
+
+                <div class="user-form-row">
+                    <div class="user-form-group">
+                        <label class="user-form-label">Cập nhật lần cuối</label>
+                        <input type="text" 
+                               value="{{ $user->updated_at->format('d/m/Y H:i:s') }}" 
+                               class="user-form-input" 
+                               readonly>
+                    </div>
+                    
+                    <div class="user-form-group">
+                        <label class="user-form-label">Xác thực email</label>
+                        <input type="text" 
+                               value="{{ $user->email_verified_at ? 'Đã xác thực' : 'Chưa xác thực' }}" 
+                               class="user-form-input" 
+                               readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-form-actions">
+                <button type="submit" class="user-btn user-btn-primary">
+                    <i class="fas fa-save"></i>
+                    Cập nhật người dùng
+                </button>
+                <a href="{{ route('admin.users.index') }}" class="user-btn user-btn-outline">
+                    <i class="fas fa-times"></i>
+                    Hủy bỏ
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+@endsection
+
+<script>
+// Avatar preview function
+function previewAvatar(input) {
+    const preview = document.getElementById('avatarPreview');
+    const file = input.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.innerHTML = `
+                <img src="${e.target.result}" alt="Avatar preview" class="avatar-preview-img">
+                <div class="avatar-preview-overlay">
+                    <i class="fas fa-eye"></i>
+                </div>
+            `;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        // Restore original avatar if exists
+        @if($user->avatar)
+            preview.innerHTML = `
+                <img src="{{ get_image_url($user->avatar) }}" alt="{{ $user->name }}" class="avatar-preview-img">
+                <div class="avatar-preview-overlay">
+                    <i class="fas fa-eye"></i>
+                </div>
+            `;
+        @else
+            preview.innerHTML = `
+                <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                    <span>Chưa có ảnh</span>
+                </div>
+            `;
+        @endif
+    }
+}
+
+// Remove avatar function
+function removeAvatar(userId) {
+    showConfirmPopup({
+        title: 'Xóa ảnh đại diện',
+        message: 'Bạn có chắc chắn muốn xóa ảnh đại diện? Ảnh sẽ được thay thế bằng ảnh mặc định.',
+        type: 'danger',
+        confirmText: 'Xóa ảnh',
+        onConfirm: () => {
+            fetch(`/admin/users/${userId}/avatar`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Cập nhật preview
+                    const preview = document.getElementById('avatarPreview');
+                    preview.innerHTML = `
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                            <span>Chưa có ảnh</span>
+                        </div>
+                    `;
+                    
+                    // Ẩn nút xóa
+                    const removeBtn = document.querySelector('.avatar-upload-container .user-btn-outline-danger');
+                    if (removeBtn) {
+                        removeBtn.style.display = 'none';
+                    }
+                    
+                    // Cập nhật label
+                    const uploadLabel = document.querySelector('.avatar-upload-btn');
+                    uploadLabel.textContent = 'Chọn ảnh';
+                    
+                    // Hiển thị thông báo thành công
+                    showConfirmPopup({
+                        title: 'Thành công',
+                        message: data.message,
+                        type: 'success',
+                        confirmText: 'OK',
+                        onConfirm: () => {}
+                    });
+                } else {
+                    // Hiển thị thông báo lỗi
+                    showConfirmPopup({
+                        title: 'Lỗi',
+                        message: data.message,
+                        type: 'danger',
+                        confirmText: 'OK',
+                        onConfirm: () => {}
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showConfirmPopup({
+                    title: 'Lỗi',
+                    message: 'Có lỗi xảy ra khi xóa ảnh',
+                    type: 'danger',
+                    confirmText: 'OK',
+                    onConfirm: () => {}
+                });
+            });
+        }
+    });
+}
+</script>

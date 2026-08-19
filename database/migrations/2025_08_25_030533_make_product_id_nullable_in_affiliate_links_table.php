@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('affiliate_links', function (Blueprint $table) {
+            $table->unsignedBigInteger('product_id')->nullable()->change();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        // First, delete records with NULL product_id before making column not nullable
+        \App\Models\AffiliateLink::whereNull('product_id')->delete();
+        
+        Schema::table('affiliate_links', function (Blueprint $table) {
+            $table->unsignedBigInteger('product_id')->nullable(false)->change();
+        });
+    }
+};
