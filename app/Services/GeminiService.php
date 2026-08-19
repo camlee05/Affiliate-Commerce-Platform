@@ -106,7 +106,7 @@ class GeminiService
     {
         $roleSpecificInfo = $this->getRoleSpecificInfo($userRole);
 
-        return "Bạn là trợ lý ảo của hệ thống Affiliate Marketing Platform.
+        return "Bạn là trợ lý ảo của hệ thống Affiliate Commenrce Platform.
 
 👤 User: {$userName} ({$userRole})
 
